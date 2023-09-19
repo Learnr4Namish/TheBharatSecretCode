@@ -5,8 +5,6 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 const all_chars = require("./all_chars.js");
 const cors = require("cors");
-let array_of_bsc = [];
-let times_repeated = 0;
 app.use(cors({
     origin: '*'
 }));
@@ -138,6 +136,8 @@ function convertBSCtoEnglish(array) {
  }
 
  function convertEnglishToBSC(array) {
+    let array_of_bsc = [];
+let times_repeated = 0;
     for(let x = 0; x < array.length; x++) {
         //console.log(array[x]);
         const word = array[x];
