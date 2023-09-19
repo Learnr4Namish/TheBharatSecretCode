@@ -159,6 +159,6 @@ let times_repeated = 0;
     return array_of_bsc;
 }
 
-app.listen(8000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Server started!");
 });
