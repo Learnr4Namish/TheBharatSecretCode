@@ -68,6 +68,7 @@ const all_chars = ["A" // Use the alpha 005
 , "`"
 , '"'
 , ";"
+, ":"
 , "["
 , "]"
 , "{"

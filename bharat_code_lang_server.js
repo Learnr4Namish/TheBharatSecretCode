@@ -5,6 +5,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 const all_chars = require("./all_chars.js");
 const cors = require("cors");
+var emoji = require('node-emoji')
 app.use(cors({
     origin: '*'
 }));
@@ -56,7 +57,7 @@ app.post("/translate_to_english", (req, res) => {
      <body>
          <h1>BharatSecretCode</h1>
          <p>The code translated to English is:- </p>
-         <p><b>${english}</b></p>
+         <p><b>${emoji.emojify(english).toString()}</b></p>
          <br>
          <p>Like this, generate your own code now!</p>
          <a href="/generate"><button>Generate</button></a>
@@ -158,6 +159,6 @@ let times_repeated = 0;
     return array_of_bsc;
 }
 
-app.listen(process.env.PORT, () => {
+app.listen(8000, () => {
     console.log("Server started!");
 });
