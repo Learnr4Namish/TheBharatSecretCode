@@ -4,21 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BharatSecretCode (BSC) language (Made exclusively by Namish Kumar)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 </head>
 <style>
     body {
-        background-color: pink;
+        background-color: white;
         text-align: center;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Fira Sans', sans-serif;
+font-family: 'Ubuntu', sans-serif;
         font-size:18px;
     }
 
     input {
          padding: 15px;
-         font-size: 17.5px;
+         font-size: 18.5px;
          width: 15em;
-         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         border-radius: 360px;
          outline: none;
+         border: none;
+         border: black solid 1px;
     }
 
     button {
@@ -26,14 +33,17 @@
         color: white;
         padding: 15px;
         border: none;
+        border-radius: 360px;
         outline: none;
         width: 12.5em;
         font-size: 17.5px;
+        font-family: 'Fira Sans', sans-serif;
+font-family: 'Ubuntu', sans-serif;
     }
 </style>
 <body>
     <h1>BharatSecretCode</h1>
-    <p>Enter the secret code (BSC) and decode what your friend told! Do remember,  <b>BSC doesn't support emojis directly</b></p>
+    <p>Enter the secret code and decode the hidden texts!</p>
     <form method="post" action="/translate_to_english">
         <input type="text" name="code" placeholder="Enter your code">
         <br>
@@ -41,5 +51,9 @@
         <button type="submit">Decode</button>
     </form>
     <p>This application is made by <b>Namish Kumar</b></p>
+    <br>
+    <br>
+    <p>Want to encode your text right now? Click the button below:-</p>
+    <a href="/generate"><button type="button">Encode</button></a>
 </body>
 </html>

@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ limit: "100000mb", extended: true, parameterLimit: 1000000000000 }))
 app.use(bodyParser.json());
 const all_chars = require("./all_chars.js");
 const cors = require("cors");
@@ -27,12 +27,16 @@ app.post("/translate_to_english", (req, res) => {
          <meta charset="UTF-8">
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <title>BharatSecretCode (BSC) language (Made exclusively by Namish Kumar)</title>
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
      </head>
      <style>
          body {
-             background-color: pink;
+             background-color: white;
              text-align: center;
-             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+             font-family: 'Fira Sans', sans-serif;
+             font-family: 'Ubuntu', sans-serif;
              font-size:18px;
          }
      
@@ -50,6 +54,9 @@ app.post("/translate_to_english", (req, res) => {
              padding: 15px;
              border: none;
              outline: none;
+             font-family: 'Fira Sans', sans-serif;
+             font-family: 'Ubuntu', sans-serif;
+             border-radius:360px;
              width: 12.5em;
              font-size: 17.5px;
          }
@@ -83,13 +90,18 @@ app.post("/translate_to_bsc", (req, res) => {
          <meta charset="UTF-8">
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <title>BharatSecretCode (BSC) language (Made exclusively by Namish Kumar)</title>
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
      </head>
      <style>
          body {
-             background-color: pink;
+             background-color: white;
              text-align: center;
-             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+             font-family: 'Fira Sans', sans-serif;
+             font-family: 'Ubuntu', sans-serif;
              font-size:18px;
+
          }
      
          input {
@@ -104,16 +116,21 @@ app.post("/translate_to_bsc", (req, res) => {
              background-color: black;
              color: white;
              padding: 15px;
+             border-radius:360px;
              border: none;
              outline: none;
              width: 12.5em;
+             font-family: 'Fira Sans', sans-serif;
+             font-family: 'Ubuntu', sans-serif;
              font-size: 17.5px;
          }
      </style>
      <body>
          <h1>BharatSecretCode</h1>
          <p>The code translated to BharatSecretCode is:- </p>
-         <p><b>${english}</p>
+         <p>
+         ${english}
+         </p>
          <br>
          <p>Copy this code and share it with your friends and family now!!</p
      </body>
@@ -121,6 +138,18 @@ app.post("/translate_to_bsc", (req, res) => {
      `
     );
 });
+
+app.get("/generate/level_ten", (req, res) => {
+   res.sendFile(__dirname + "/level_ten_encode.html");
+});
+
+app.get("/generate/level_twenty", (req, res) => {
+    res.sendFile(__dirname + "/level_hundred_encode.html");
+});
+
+app.get("/generate/level_thirty", (req, res) => {
+    res.sendFile(__dirname + "/level_two_hundred_encode.html");
+})
 
 function convertBSCtoEnglish(array) {
     
@@ -159,6 +188,6 @@ let times_repeated = 0;
     return array_of_bsc;
 }
 
-app.listen(process.env.PORT, () => {
+app.listen(80, "0.0.0.0", () => {
     console.log("Server started!");
 });
